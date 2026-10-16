@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "project": "Sentovara \u00b5AI-32",
+  "status": "Historical release record with publication privacy redactions",
+  "prepared_date": "2026-10-07",
+  "repository": "Private original; identified by audited_commit",
+  "source_pull_request": 2,
+  "audited_commit": "3e924e600ef6b65eff9f00668cb283b259930049",
+  "audited_uai32_tree": "b24970d0f9860c7cd0f46a0a08b5e407169b266a",
+  "project_license": "Apache-2.0",
+  "license_added_after_audited_commit": true,
+  "claim": {
+    "limit_bytes": 32768,
+    "executable_bytes": 9188,
+    "mnist_model_bytes": 21468,
+    "combined_bytes": 30656,
+    "spare_bytes": 2112,
+    "correct": 9781,
+    "test_count": 10000,
+    "accuracy_percent": 97.81,
+    "printed_loss": 0.0766,
+    "preprocessing": "2x2 average pooling, rounding; 28x28 to 14x14"
+  },
+  "accounting": {
+    "included": [
+      "complete executable file",
+      "one complete saved model file"
+    ],
+    "excluded": [
+      "host libc",
+      "host libm",
+      "host ELF loader",
+      "OS",
+      "RAM",
+      "datasets",
+      "compiler",
+      "verification tools",
+      "source",
+      "documentation",
+      "packaging metadata"
+    ]
+  },
+  "artifacts": {
+    "uai32": {
+      "bytes": 9188,
+      "sha256": "996d73cba9676e8932206b9c80493becde6d04b6a57b70839999b0824c0186cb",
+      "byte_identical_to_committed": true
+    },
+    "iris.model": {
+      "bytes": 174,
+      "sha256": "2a859cf4edba8af4de4fa0a598dfc26280c3ecb914d298260c8846de1671fb48",
+      "byte_identical_to_committed": true
+    },
+    "mnist14.model": {
+      "bytes": 21468,
+      "sha256": "24092e4006782550ac02a355d8e4d6bd24eb272a94993152fc159467cfc80c80",
+      "byte_identical_to_committed": true
+    },
+    "rings.model": {
+      "bytes": 222,
+      "sha256": "7e12bcb541bc8ce39117437458bbd40306f562722a668904fc03cb903b7fc834",
+      "byte_identical_to_committed": true
+    },
+    "spirals.model": {
+      "bytes": 348,
+      "sha256": "d9a5b4228c59479837c2c77f91a19e0ce7cb9c19561e4ff8f136e69c46bfbb82",
+      "byte_identical_to_committed": true
+    },
+    "SHA256SUMS": {
+      "bytes": 387,
+      "sha256": "036f3894d7155b71c5c46acafbceb5eac411979d3305a83f9f73ce85f39d75a9",
+      "byte_identical_to_committed": true
+    }
+  },
+  "original_evidence": {
+    "original_private_sha256": "110fd5fa62c87d4324d0a71111aeb4f4d0f23406f7982dcc34663eefd268c734",
+    "publication_path": "evidence/audit-3e924e6-publication.zip",
+    "publication_sha256": "1c05c151f5818558ba29b723a1792f2d57d8230fdc011e4d582b48f892f0448d",
+    "unchanged": false,
+    "redaction_map": "../../PUBLICATION_PROVENANCE.json"
+  },
+  "recorded_audit": {
+    "verdict": "PASS",
+    "scope": "Two remaining P2 findings from c2c1497 and existing release gates",
+    "mandatory_checks": 28,
+    "regression_groups": 18,
+    "recorded_subprocess_invocations": 222
+  },
+  "audit_does_not_apply_to_new_documentation_as_a_new_independent_audit": true,
+  "worlds_smallest_claim": false
+}

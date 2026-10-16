@@ -1,0 +1,285 @@
+{
+  "verdict": "PASS",
+  "repository": "the private origin repository",
+  "pull_request": 2,
+  "commit": "3e924e600ef6b65eff9f00668cb283b259930049",
+  "scope": "Two remaining P2 findings from c2c1497 and existing release gates",
+  "audit_boundary": {
+    "detached_checkouts": true,
+    "source_files_unchanged": true,
+    "remote_mutations": false,
+    "branch_commits_or_pushes": false
+  },
+  "previous_findings": {
+    "normalization_range_overflow": {
+      "status": "FIXED",
+      "independent_probes": {
+        "range_normal_3e38": {
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "uai32: feature range overflows float\n",
+          "model_exists": false
+        },
+        "range_normal_1.7e38": {
+          "returncode": 0,
+          "stdout": "new model: 1 inputs, 2 hidden, 2 classes, 12 parameters\nepoch 1/1  train loss 0.6954  accuracy 0/2 = 0.0%\n",
+          "stderr": "",
+          "model_exists": true,
+          "mean": 0.0,
+          "scale": 2.9411769389805726e-39,
+          "model_bytes": 36
+        },
+        "range_sanitizer_3e38": {
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "uai32: feature range overflows float\n",
+          "model_exists": false
+        },
+        "range_sanitizer_1.7e38": {
+          "returncode": 0,
+          "stdout": "new model: 1 inputs, 2 hidden, 2 classes, 12 parameters\nepoch 1/1  train loss 0.6954  accuracy 0/2 = 0.0%\n",
+          "stderr": "",
+          "model_exists": true,
+          "mean": 0.0,
+          "scale": 2.9411769389805726e-39,
+          "model_bytes": 36
+        },
+        "range_committed_3e38": {
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "uai32: feature range overflows float\n",
+          "model_exists": false
+        },
+        "range_committed_1.7e38": {
+          "returncode": 0,
+          "stdout": "new model: 1 inputs, 2 hidden, 2 classes, 12 parameters\nepoch 1/1  train loss 0.6954  accuracy 0/2 = 0.0%\n",
+          "stderr": "",
+          "model_exists": true,
+          "mean": 0.0,
+          "scale": 2.9411769389805726e-39,
+          "model_bytes": 36
+        }
+      }
+    },
+    "failed_dist_publication": {
+      "status": "FIXED",
+      "failure_injection": {
+        "returncode": 2,
+        "stdout": "iris: test loss 0.0794  accuracy 29/30 = 96.7%\nspirals: test loss 0.0213  accuracy 298/300 = 99.3%\nrings: test loss 0.0046  accuracy 300/300 = 100.0%\nmnist14: test loss 0.0766  accuracy 9781/10000 = 97.8%\n",
+        "stderr": "audit: injected failure at final publication mv\ndist: publication failed; restoring the previous dist/\nmake: *** [Makefile:46: dist] Error 1\n",
+        "previous_dist_byte_identical": true,
+        "before": {
+          "SHA256SUMS": {
+            "sha256": "322af860f3763e5c55e7dac867b4c00f8cfaacbca61c71d48d764c29184126d1",
+            "bytes": 387
+          },
+          "iris.model": {
+            "sha256": "2a859cf4edba8af4de4fa0a598dfc26280c3ecb914d298260c8846de1671fb48",
+            "bytes": 174
+          },
+          "mnist14.model": {
+            "sha256": "24092e4006782550ac02a355d8e4d6bd24eb272a94993152fc159467cfc80c80",
+            "bytes": 21468
+          },
+          "rings.model": {
+            "sha256": "7e12bcb541bc8ce39117437458bbd40306f562722a668904fc03cb903b7fc834",
+            "bytes": 222
+          },
+          "spirals.model": {
+            "sha256": "d9a5b4228c59479837c2c77f91a19e0ce7cb9c19561e4ff8f136e69c46bfbb82",
+            "bytes": 348
+          },
+          "uai32": {
+            "sha256": "d54a8a759ffdb315638b9ea280401175c22357c00e8dc63286f96f68dbb8392e",
+            "bytes": 9140
+          }
+        },
+        "after": {
+          "SHA256SUMS": {
+            "sha256": "322af860f3763e5c55e7dac867b4c00f8cfaacbca61c71d48d764c29184126d1",
+            "bytes": 387
+          },
+          "iris.model": {
+            "sha256": "2a859cf4edba8af4de4fa0a598dfc26280c3ecb914d298260c8846de1671fb48",
+            "bytes": 174
+          },
+          "mnist14.model": {
+            "sha256": "24092e4006782550ac02a355d8e4d6bd24eb272a94993152fc159467cfc80c80",
+            "bytes": 21468
+          },
+          "rings.model": {
+            "sha256": "7e12bcb541bc8ce39117437458bbd40306f562722a668904fc03cb903b7fc834",
+            "bytes": 222
+          },
+          "spirals.model": {
+            "sha256": "d9a5b4228c59479837c2c77f91a19e0ce7cb9c19561e4ff8f136e69c46bfbb82",
+            "bytes": 348
+          },
+          "uai32": {
+            "sha256": "d54a8a759ffdb315638b9ea280401175c22357c00e8dc63286f96f68dbb8392e",
+            "bytes": 9140
+          }
+        },
+        "leftover_stage_or_backup_paths": [],
+        "mv_calls": [
+          "dist -> work/previous-dist.499",
+          "work/stage.RLH4UC -> dist",
+          "work/previous-dist.499 -> dist"
+        ]
+      },
+      "normal_control": {
+        "returncode": 0,
+        "stdout": "iris: test loss 0.0794  accuracy 29/30 = 96.7%\nspirals: test loss 0.0213  accuracy 298/300 = 99.3%\nrings: test loss 0.0046  accuracy 300/300 = 100.0%\nmnist14: test loss 0.0766  accuracy 9781/10000 = 97.8%\nd54a8a759ffdb315638b9ea280401175c22357c00e8dc63286f96f68dbb8392e  uai32\n2a859cf4edba8af4de4fa0a598dfc26280c3ecb914d298260c8846de1671fb48  iris.model\n24092e4006782550ac02a355d8e4d6bd24eb272a94993152fc159467cfc80c80  mnist14.model\n7e12bcb541bc8ce39117437458bbd40306f562722a668904fc03cb903b7fc834  rings.model\nd9a5b4228c59479837c2c77f91a19e0ce7cb9c19561e4ff8f136e69c46bfbb82  spirals.model\n 9140 dist/uai32\n  174 dist/iris.model\n21468 dist/mnist14.model\n  222 dist/rings.model\n  348 dist/spirals.model\n31352 total\n",
+        "stderr": "",
+        "published_dist_matches_validated_artifacts": true,
+        "leftover_stage_or_backup_paths": []
+      }
+    }
+  },
+  "release_gates": {
+    "verification": "ALL CHECKS PASSED (28/28)",
+    "regression_groups": 18,
+    "recorded_subprocess_invocations": 222,
+    "sanitizer_invocations": 92,
+    "sanitizers": [
+      "AddressSanitizer",
+      "UndefinedBehaviorSanitizer",
+      "float-cast-overflow"
+    ],
+    "committed_checksums": "All five artifacts passed SHA-256 verification before regeneration",
+    "mnist_correct": 9781,
+    "mnist_total": 10000,
+    "mnist_accuracy_percent": 97.81,
+    "mnist_loss": 0.0766,
+    "committed_executable_bytes": 9188,
+    "mnist_model_bytes": 21468,
+    "combined_bytes": 30656,
+    "byte_limit": 32768,
+    "spare_bytes": 2112,
+    "pinned_clean_tree_reproduction": {
+      "head": "3e924e600ef6b65eff9f00668cb283b259930049",
+      "all_artifacts_byte_identical_to_committed": true,
+      "post_release_git_status": "",
+      "artifacts": {
+        "uai32": {
+          "bytes": 9188,
+          "sha256": "996d73cba9676e8932206b9c80493becde6d04b6a57b70839999b0824c0186cb",
+          "byte_identical_to_committed": true
+        },
+        "iris.model": {
+          "bytes": 174,
+          "sha256": "2a859cf4edba8af4de4fa0a598dfc26280c3ecb914d298260c8846de1671fb48",
+          "byte_identical_to_committed": true
+        },
+        "mnist14.model": {
+          "bytes": 21468,
+          "sha256": "24092e4006782550ac02a355d8e4d6bd24eb272a94993152fc159467cfc80c80",
+          "byte_identical_to_committed": true
+        },
+        "rings.model": {
+          "bytes": 222,
+          "sha256": "7e12bcb541bc8ce39117437458bbd40306f562722a668904fc03cb903b7fc834",
+          "byte_identical_to_committed": true
+        },
+        "spirals.model": {
+          "bytes": 348,
+          "sha256": "d9a5b4228c59479837c2c77f91a19e0ce7cb9c19561e4ff8f136e69c46bfbb82",
+          "byte_identical_to_committed": true
+        },
+        "SHA256SUMS": {
+          "bytes": 387,
+          "sha256": "036f3894d7155b71c5c46acafbceb5eac411979d3305a83f9f73ce85f39d75a9",
+          "byte_identical_to_committed": true
+        }
+      }
+    },
+    "two_independent_native_builds_byte_identical": true,
+    "native_toolchain": "gcc 15.2 / binutils 2.46 / glibc 2.43; 9140-byte executable",
+    "pinned_toolchain": "gcc 13.3 / binutils 2.42 / glibc 2.39 headers and startup objects; 9188-byte executable"
+  },
+  "new_material_defects": [],
+  "source_integrity": {
+    "uai32/.gitattributes": {
+      "sha256": "5ade723dc855f35c6dbc0e258625bf0c7be43be648a4c9cbff85d6ea79e2e8cc",
+      "unchanged": true
+    },
+    "uai32/.gitignore": {
+      "sha256": "eac846beccb2e53416b2fa1bd8cdf7d1ae9d7b4f2251e59bb03e984fbcab43a3",
+      "unchanged": true
+    },
+    "uai32/Makefile": {
+      "sha256": "fee78214c088dc677b05e20f09acf67d32c5d4e89a3865e1a9ea7357a9e7d070",
+      "unchanged": true
+    },
+    "uai32/README.md": {
+      "sha256": "bd9d7fca68248e00a2a8931090babbe8ef0c942b903e6268e3cacd1cb4183b10",
+      "unchanged": true
+    },
+    "uai32/check_artifacts.py": {
+      "sha256": "ddef5486606da8ff7c64819668095160310cdcfbbfb1acd10d6613725a6d9a13",
+      "unchanged": true
+    },
+    "uai32/data/iris.data": {
+      "sha256": "6f608b71a7317216319b4d27b4d9bc84e6abd734eda7872b71a458569e2656c0",
+      "unchanged": true
+    },
+    "uai32/data/iris_test.txt": {
+      "sha256": "f565cc52f3863b84f7f0da6affd44bc2490f22481a08a510ab916bebaec14556",
+      "unchanged": true
+    },
+    "uai32/data/iris_train.txt": {
+      "sha256": "b9e81be26957d37941e1a2cddba359be7d496e7810293d5d97adf284fad2f0b4",
+      "unchanged": true
+    },
+    "uai32/data/rings_test.txt": {
+      "sha256": "cb64cbc88f6814675776ff7361de86c03f6d248aa8b70c794fc85a64bc3ac10f",
+      "unchanged": true
+    },
+    "uai32/data/rings_train.txt": {
+      "sha256": "8724e000877a611ace4d24dcceee14e95b720aa6f3514e3ec311f9f5d7f4c8e0",
+      "unchanged": true
+    },
+    "uai32/data/spirals_test.txt": {
+      "sha256": "f1ae98b55c7d5b2b5f8ba50c4226ad90f301478c5207ece5a18d53a41ca21f5e",
+      "unchanged": true
+    },
+    "uai32/data/spirals_train.txt": {
+      "sha256": "75cfb5c0648283e42e74c03815da681d1899d186916e8b399af3ec2c47378f9b",
+      "unchanged": true
+    },
+    "uai32/gen_data.py": {
+      "sha256": "986c660c13fb48d1f4981d76993e3c720a142560948cb6bbf547ac99f4ccc9bd",
+      "unchanged": true
+    },
+    "uai32/get_mnist.py": {
+      "sha256": "842b0b2c31d13a795057d8870512b9a26a42d645f67743fc65211ba23256c77e",
+      "unchanged": true
+    },
+    "uai32/measure.sh": {
+      "sha256": "f6d4febeac46bff58b663624176a1bf42f49964ac0071c167818ee4826c6d66f",
+      "unchanged": true
+    },
+    "uai32/refcheck.py": {
+      "sha256": "a7c809633ef1fda77c32f6ada6e793aeca45619f421a048e2f5912913eed094c",
+      "unchanged": true
+    },
+    "uai32/regression_tests.py": {
+      "sha256": "336334a250495cce9689464a6e3fa4358e532d575aefc164488592ea56f22a58",
+      "unchanged": true
+    },
+    "uai32/uai32.c": {
+      "sha256": "db1fb48dade929f1b53e416ee473fb6e413e708febbf211489a59e66815fabcd",
+      "unchanged": true
+    },
+    "uai32/verify.sh": {
+      "sha256": "97aa73e156fef9bd3ac8bd5c5f3b575e18bc5d1de100ca6544382811455f3699",
+      "unchanged": true
+    }
+  },
+  "evidence_notes": [
+    "Publication fault probe used real make dist training/evaluation, not a fake training process.",
+    "The final stage-to-dist mv alone failed; restoration mv was independently recorded.",
+    "Full sanitizer regression suite ran on GCC 15.2; overflow controls also exercised the committed 9188-byte executable.",
+    "Pinned executable, all four retrained models and SHA256SUMS reproduced committed bytes exactly; final checkout remained clean."
+  ]
+}

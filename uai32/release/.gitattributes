@@ -1,0 +1,5 @@
+# Preserve original evidence bytes, including line endings.
+/evidence/* -text whitespace=cr-at-eol
+*.md text eol=lf
+PROVENANCE.json text eol=lf
+.gitattributes text eol=lf

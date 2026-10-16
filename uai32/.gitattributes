@@ -1,0 +1,12 @@
+*.model binary
+dist/uai32 binary
+*.sh text eol=lf
+*.py text eol=lf
+*.c text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.data text eol=lf
+Makefile text eol=lf
+dist/SHA256SUMS text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
